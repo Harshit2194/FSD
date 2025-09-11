@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio — Harshit Patel</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #f8f9fa;
+        color: #333;
+        scroll-behavior: smooth;
+      }
+
+      /* Hero Section */
+      .hero {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px;
+        background: white;
+        flex-wrap: wrap;
+      }
+      .hero-text {
+        max-width: 55%;
+        min-width: 300px;
+      }
+      .hero-text h1 {
+        font-size: 2.5em;
+        color: #2c3e50;
+        margin-bottom: 10px;
+      }
+      .hero-text h2 {
+        color: #e74c3c;
+        margin-top: 0;
+      }
+      .hero-text p {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+      }
+      .btn {
+        background: #e74c3c;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+      .btn:hover {
+        background: #c0392b;
+      }
+      .hero img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        margin-top: 20px;
+      }
+
+      /* Projects Section */
+      .projects {
+        background: #eef6fb;
+        padding: 40px;
+      }
+      .projects h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #2c3e50;
+      }
+      .project-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        transition: box-shadow 0.3s ease;
+      }
+      .card:hover {
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      }
+      .card h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+      .card a {
+        color: #e74c3c;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .card a:hover {
+        text-decoration: underline;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 40px;
+        text-align: center;
+        background: white;
+      }
+      .contact h2 {
+        color: #2c3e50;
+      }
+      .contact p {
+        margin: 10px 0;
+      }
+      .contact a {
+        color: #e74c3c;
+        text-decoration: none;
+      }
+      .contact a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background: #2c3e50;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Hi, I am Harshit Patel</h1>
+        <h2>Data Scientist • ML Engineer</h2>
+        <p>I’m a B.Tech (Data Science) student at <strong>ABES Engineering College, Ghaziabad</strong> with a strong foundation in Python, machine learning, and data analysis. I’ve worked with ML algorithms, EDA, and Naive Bayes for text classification, and I’m exploring the connection between human neural networks and artificial neural networks.</p>
+        <p>I’m passionate about applying AI/ML to solve real-world problems, and I’m actively building projects and research-oriented solutions in data science.</p>
+        <a href="resume.pdf" class="btn" download>Download Resume</a>
+      </div>
+      <img src="image.jpeg" alt="Harshit Patel">
+    </section>
+
+        <!-- Projects Section -->
+    <section class="projects">
+    <h2>Highlighted Projects</h2>
+    <div class="project-list">
+        <div class="card">
+        <h3>Amazon Review Analysis</h3>
+        <p>Review analysis using Naive Bayes on Amazon dataset.</p>
+        <p><strong>Tech:</strong> Python, scikit-learn, pandas</p>
+        <p><a href="https://github.com/Harshit2194/Sentiment_Analysis" target="_blank">View on GitHub</a></p>
+        </div>
+
+        <div class="card">
+        <h3>Titanic Dataset Analysis</h3>
+        <p>Performed exploratory data analysis (EDA) and feature engineering on Titanic dataset to identify survival patterns.</p>
+        <p><strong>Tech:</strong> Python, pandas, matplotlib, seaborn</p>
+        <p><em>Not deployed on GitHub</em></p>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:patelharshit156@gmail.com">patelharshit156@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/Harshit2194" target="_blank">github.com/Harshit2194</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/harshit2194/" target="_blank">linkedin.com/in/harshit2194</a></p>
+    </section>
+
+    <footer>
+      <p>© <span id="year">2025</span> Harshit Patel</p>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
