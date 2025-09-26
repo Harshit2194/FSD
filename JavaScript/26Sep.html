@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .form-group { margin-bottom: 10px; }
+    label { display: block; margin-bottom: 5px; }
+    input, button { padding: 8px; width: 100%; max-width: 300px; }
+    button { margin-top: 10px; }
+    #output { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+
+  <h2>Student Entry Form</h2>
+
+  <form id="studentForm">
+    <div class="form-group">
+      <label for="studentName">Student Name:</label>
+      <input type="text" id="studentName" name="studentName" required>
+    </div>
+
+    <div class="form-group">
+      <label for="studentMarks">Marks:</label>
+      <input type="number" id="studentMarks" name="studentMarks" required>
+    </div>
+
+    <button type="submit">Add Student</button>
+  </form>
+
+  <hr>
+
+  <h3>Actions</h3>
+  <button id="showAll">Show All Students</button>
+  <button id="showPassed">Show Passed Students</button>
+  <button id="showAverage">Calculate Average Marks</button>
+  <button id="showTopper">Find Topper</button>
+
+  <div id="output"></div>
+
+<script>
+  const students = [];
+
+  // add student
+  function addStudent(name, marks) {
+    students.push({ name, marks: parseInt(marks) });
+  }
+
+  // display all with map()
+  function displayAllStudents(callback) {
+    const result = students.map(s => `${s.name}: ${s.marks} marks`);
+    callback(result);
+  }
+
+  // passed students with filter()
+  function getPassedStudents(callback) {
+    const passed = students.filter(s => s.marks >= 40);
+    callback(passed.map(s => `${s.name}: ${s.marks} marks`));
+  }
+
+  // average with reduce()
+  function calculateAverage(callback) {
+    if (students.length === 0) return callback("No students available.");
+    const total = students.reduce((sum, s) => sum + s.marks, 0);
+    const avg = (total / students.length).toFixed(2);
+    callback(`Average Marks: ${avg}`);
+  }
+
+  // topper with normal function
+  function findTopper() {
+    if (students.length === 0) return "No students available.";
+    let topper = students[0];
+    for (let i = 1; i < students.length; i++) {
+      if (students[i].marks > topper.marks) {
+        topper = students[i];
+      }
+    }
+    return `Topper: ${topper.name} with ${topper.marks} marks`;
+  }
+
+  // callback display function
+  function displayResults(data) {
+    const out = document.getElementById("output");
+    if (Array.isArray(data)) {
+      out.innerHTML = data.join("<br>");
+    } else {
+      out.innerHTML = data;
+    }
+  }
+
+  // Handle form submit
+  document.getElementById("studentForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = document.getElementById("studentName").value;
+    const marks = document.getElementById("studentMarks").value;
+    addStudent(name, marks);
+    this.reset();
+    displayResults("✅ Student added successfully!");
+  });
+
+  // Action buttons
+  document.getElementById("showAll").addEventListener("click", () => displayAllStudents(displayResults));
+  document.getElementById("showPassed").addEventListener("click", () => getPassedStudents(displayResults));
+  document.getElementById("showAverage").addEventListener("click", () => calculateAverage(displayResults));
+  document.getElementById("showTopper").addEventListener("click", () => displayResults(findTopper()));
+</script>
+
+</body>
+</html>
