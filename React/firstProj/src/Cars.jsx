@@ -10,4 +10,4 @@ function Cars(props){
         </div>
     );
 }
-export default Cars;
+export default Card;
