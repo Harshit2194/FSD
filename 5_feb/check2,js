@@ -1,0 +1,17 @@
+function myFunction(){
+    console.log("Starting a task...");
+    setTimeout(()=>{
+    let sum = 0;
+    
+    for (let i =0;i<100000000;i++){
+        sum +=i;
+
+    }
+    console.log("Task finsished");
+    console.log("Result",sum);
+    
+},0);
+}
+console.log ("Before the funciton call ");
+myFunction();
+console.log("After the fucntion call");
